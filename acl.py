@@ -3,7 +3,7 @@ import logging;
 
 logging.basicConfig(filename="aaa.log", level=logging.DEBUG, mode='w'); 
 
-def authenticated(func):
+def authentication(func):
     @wraps(func)
     def wrapper(self, *args, **kwargs):
         if self.is_authenticated:
@@ -22,7 +22,7 @@ def authenticated(func):
     return wrapper
 
 
-def authorized(func):
+def authorization(func):
     @wraps(func)
     def wrapper(self, *args, **kwargs):
         if self.is_authenticated:

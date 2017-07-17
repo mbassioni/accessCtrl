@@ -1,4 +1,4 @@
-from acl import authenticated, authorized;
+from acl import authentication, authorization;
 
 class Resource(object):
     
@@ -23,8 +23,8 @@ class Resource(object):
         if not isinstance(id, type(None)):
             self.id = long(id); 
             
-    @authorized  
-    @authenticated
+    @authorization  
+    @authentication
     def access(self, username=None, password=None, _authorized=False, _authenticated=False):
         self.authorized = _authorized; 
         self.authenticated = _authenticated; 
